@@ -1,4 +1,3 @@
-client.connect(('0.0.0.0', 1013))
 import time
 import socket
 import board
