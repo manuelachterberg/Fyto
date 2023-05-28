@@ -1,5 +1,5 @@
 client.connect(('0.0.0.0', 1013))
-ConnectionRefusedError: [Errno 111] Connection refusedimport time
+import time
 import socket
 import board
 import busio
