@@ -9,7 +9,7 @@ i2c = busio.I2C(board.SCL, board.SDA)
 ads = ADS.ADS1115(i2c)
 Moisture_channel = AnalogIn(ads, ADS.P1)
 LDR_channel = AnalogIn(ads, ADS.P2)
-LM35_channel = AnalogIn(ads, ADS.P3)
+LM35_channel = AnalogIn(ads, ADS.P0)
 
 ADC_16BIT_MAX = 65536
 lm35_constant = 10.0/1000
