@@ -75,7 +75,7 @@ while True:
         Moisture_Recent = Moisture_Percent
         if(Savory_DataSent == 0):
             #client.connect(('0.0.0.0', 8080))
-            client.send(bytes('savor','utf-8'))
+            client.send(bytes('savory','utf-8'))
             #client.close()
             Savory_DataSent = 1
             Thirsty_DataSent = 0
