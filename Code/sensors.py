@@ -1,4 +1,5 @@
-import time
+client.connect(('0.0.0.0', 1013))
+ConnectionRefusedError: [Errno 111] Connection refusedimport time
 import socket
 import board
 import busio
@@ -7,9 +8,9 @@ from adafruit_ads1x15.analog_in import AnalogIn
 
 i2c = busio.I2C(board.SCL, board.SDA)
 ads = ADS.ADS1115(i2c)
-Moisture_channel = AnalogIn(ads, ADS.P2)
-LDR_channel = AnalogIn(ads, ADS.P3)
-LM35_channel = AnalogIn(ads, ADS.P1)
+Moisture_channel = AnalogIn(ads, ADS.P1)
+LDR_channel = AnalogIn(ads, ADS.P2)
+LM35_channel = AnalogIn(ads, ADS.P3)
 
 ADC_16BIT_MAX = 65536
 lm35_constant = 10.0/1000
@@ -50,7 +51,7 @@ while True:
     if (LDR_Percent < 20):
         if(LowIn_DataSent == 0):
             #client.connect(('0.0.0.0', 8080))
-            client.send(bytes('sleep','utf-8'))
+            client.send(bytes('sleepy','utf-8'))
             #client.close()
             HighIn_DataSent = 0
             LowIn_DataSent = 1
@@ -66,7 +67,7 @@ while True:
         Moisture_Recent = Moisture_Percent
         if(Thirsty_DataSent == 0):
             #client.connect(('0.0.0.0', 8080))
-            client.send(bytes('thirs','utf-8'))
+            client.send(bytes('thirsty','utf-8'))
             #client.close()
             Thirsty_DataSent = 1
             Savory_DataSent = 0
@@ -84,7 +85,7 @@ while True:
         Moisture_Recent = Moisture_Percent
         if(Happy_DataSent == 0):
             #client.connect(('0.0.0.0', 8080))
-            client.send(bytes('savor','utf-8'))
+            client.send(bytes('savory','utf-8'))
             #client.close()
             Happy_DataSent = 1
             Savory_DataSent = 0
@@ -93,13 +94,13 @@ while True:
     if(Temperature>30):
         if(TemperatureDataSent == 0):
             #client.connect(('0.0.0.0', 8080))
-            client.send(bytes('hotty','utf-8'))
+            client.send(bytes('hot','utf-8'))
             #client.close()
             TemperatureDataSent = 1
     elif(Temperature<22):
         if(TemperatureDataSent == 0):
             #client.connect(('0.0.0.0', 8080))
-            client.send(bytes('freez','utf-8'))
+            client.send(bytes('freeze','utf-8'))
             #client.close()
             TemperatureDataSent = 1
     else:
